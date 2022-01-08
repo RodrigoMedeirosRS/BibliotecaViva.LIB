@@ -1,2 +1,6 @@
 /DTO/bin
 /DTO/obj
+/SAL/bin
+/SAL/obj
+/LIB/System.Data.SQLite.NetStandard/bin
+/LIB/System.Data.SQLite.NetStandard/obj
