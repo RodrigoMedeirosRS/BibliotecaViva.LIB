@@ -1,0 +1,7 @@
+{
+  "files.exclude": {
+    "BibliotecaViva.LIB\\DTO\\bin": true,
+    "BibliotecaViva.LIB\\DTO\\obj": true,
+    ".vscode": true
+  }
+}
