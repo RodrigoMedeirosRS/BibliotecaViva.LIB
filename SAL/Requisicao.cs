@@ -1,13 +1,9 @@
 using System;
+using RestSharp;
 using System.IO;
 using System.Net;
-using System.Configuration;
 using Newtonsoft.Json;
-using RestSharp;
-using Godot;
-
 using SAL.Interface;
-using Godot;
 
 namespace SAL
 {
@@ -23,7 +19,7 @@ namespace SAL
             }
             catch(Exception e)
             {
-                throw new Exception("Erro na transmissão: " + e.Message);
+                throw new Exception("Erro na transmissï¿½o: " + e.Message);
             }
         }
 
@@ -33,13 +29,13 @@ namespace SAL
             {
                 using (var resposta = EnviarGET(requisicao))
                 {
-                    string textoResposta = ObterResposta(resposta);
+                    var textoResposta = ObterResposta(resposta);
                     return textoResposta;
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro na transmissão: " + ex.Message);
+                throw new Exception("Erro na transmissï¿½o: " + ex.Message);
             }
         }
 
@@ -69,7 +65,7 @@ namespace SAL
         private string ObterResposta(WebResponse resposta)
         {
             var streamDados = resposta.GetResponseStream();
-            StreamReader reader = new StreamReader(streamDados);
+            var reader = new StreamReader(streamDados);
             var textoResposta = reader.ReadToEnd().ToString();
 
             reader.Close();
@@ -79,7 +75,7 @@ namespace SAL
 
         private string EnviarPOST(RestClient client, RestRequest request)
         {
-            IRestResponse response = client.Execute(request);
+            var response = client.Execute(request);
             return response.Content.ToString();
         }
 

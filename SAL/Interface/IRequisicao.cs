@@ -4,6 +4,7 @@ namespace SAL.Interface
     {
         S ExecutarPost<T, S>(string url, T Corpo);
         string ExecutarGet(string requisicao);
+        
         void Dispose();
     }
 }

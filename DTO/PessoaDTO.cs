@@ -1,9 +1,21 @@
+using System;
 using System.Collections.Generic;
+
+using BibliotecaViva.DTO.Uteis;
 
 namespace BibliotecaViva.DTO
 {
-    public class PessoaDTO : BaseDTO
+    public class PessoaDTO : BaseDTO, IDisposable
     {
+        public PessoaDTO()
+        {
+            Nome = string.Empty;
+            Sobrenome = string.Empty;
+            Genero = string.Empty;
+            Apelido = string.Empty;
+            NomeSocial = string.Empty;
+            Relacoes = new List<PessoaRegistroDTO>();
+        }
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
         public string Genero { get; set; }
@@ -12,5 +24,16 @@ namespace BibliotecaViva.DTO
         public long? Latitude { get; set; }
         public long? Longitude { get; set; }
         public List<PessoaRegistroDTO> Relacoes { get; set; }
+
+        public void Dispose()
+        {
+            Nome = null;
+            NomeSocial = null;
+            Genero = null;
+            Apelido = null;
+            Latitude = null;
+            Longitude = null;
+            Desalocador.DesalocarLista<PessoaRegistroDTO>(Relacoes);
+        }
     }
 }

@@ -1,10 +1,24 @@
+using System;
 using System.Collections.Generic;
+
+using BibliotecaViva.DTO.Uteis;
 
 namespace BibliotecaViva.DTO.Dominio
 {
-    public class SonarRetorno
+    public class SonarRetorno : IDisposable
     {
+        public SonarRetorno()
+        {
+            Registros = new List<RegistroDTO>();
+            Pessoas = new List<PessoaDTO>();
+        }
         public List<RegistroDTO> Registros { get; set; }
         public List<PessoaDTO> Pessoas { get; set; }
+
+        public void Dispose()
+        {
+            Desalocador.DesalocarLista<RegistroDTO>(Registros);
+            Desalocador.DesalocarLista<PessoaDTO>(Pessoas);
+        }
     }
 }
