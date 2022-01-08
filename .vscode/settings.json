@@ -2,6 +2,12 @@
   "files.exclude": {
     "BibliotecaViva.LIB\\DTO\\bin": true,
     "BibliotecaViva.LIB\\DTO\\obj": true,
-    ".vscode": true
+    ".vscode": true,
+    "DTO\\bin": true,
+    "DTO\\obj": true,
+    "SAL\\bin": true,
+    "SAL\\obj": true,
+    "LIB\\System.Data.SQLite.NetStandard\\bin": true,
+    "LIB\\System.Data.SQLite.NetStandard\\obj": true
   }
 }
