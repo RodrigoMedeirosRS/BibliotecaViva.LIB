@@ -3,9 +3,9 @@ using RestSharp;
 using System.IO;
 using System.Net;
 using Newtonsoft.Json;
-using SAL.Interface;
+using BibliotecaViva.SAL.Interface;
 
-namespace SAL
+namespace BibliotecaViva.SAL
 {
     public class Requisicao : IRequisicao, IDisposable
     {
@@ -19,7 +19,7 @@ namespace SAL
             }
             catch(Exception e)
             {
-                throw new Exception("Erro na transmiss�o: " + e.Message);
+                throw new Exception("Erro na transmissão: " + e.Message);
             }
         }
 
@@ -35,7 +35,7 @@ namespace SAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro na transmiss�o: " + ex.Message);
+                throw new Exception("Erro na transmissão: " + ex.Message);
             }
         }
 
