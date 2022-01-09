@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace BibliotecaViva.BLL.Utils
 {
-    public static class ValidadorUtils
+    public static class TratadorUtil
     {
         public static int BoolToInt(bool valor)
         {
@@ -59,6 +59,24 @@ namespace BibliotecaViva.BLL.Utils
                     return Convert.ToBase64String(msEncrypt.ToArray());
                 }
             }
+        }
+        public static long[] ProcessarLatLong(string latlong)
+        {
+            latlong = RemoverEspacosString(latlong);
+            var coordenadas = SepararPorVirgula(latlong);
+            return new long[2]
+            {
+                long.Parse(coordenadas[0]),
+                long.Parse(coordenadas[1])
+            };
+        }
+        public static string RemoverEspacosString(string input)
+        {
+            return input.Replace(" ", "");
+        }
+        public static string[] SepararPorVirgula(string input)
+        {
+            return input.Split(',');
         }
         private static void ValidarQuantidadeDeDigitos(string cpf)
         {
