@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTO", "DTO\BibliotecaViva.DTO.csproj", "{926819CF-88D1-4D3C-A363-5BFDB97A2651}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SAL", "SAL\SAL.csproj", "{C34D244A-CFFB-43E7-8068-70D8EF8EB9EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SAL", "SAL\BibliotecaViva.SAL.csproj", "{C34D244A-CFFB-43E7-8068-70D8EF8EB9EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
