@@ -1,8 +1,9 @@
 using System;
+using BibliotecaViva.DTO.Interface;
 
 namespace BibliotecaViva.DTO
 {
-    public class ApelidoDTO : BaseDTO, IDisposable
+    public class ApelidoDTO : BaseDTO, IDisposable, INomeado
     {
         public ApelidoDTO()
         {

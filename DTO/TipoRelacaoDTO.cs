@@ -1,8 +1,9 @@
 using System;
+using BibliotecaViva.DTO.Interface;
 
 namespace BibliotecaViva.DTO
 {
-    public class TipoRelacaoDTO : BaseDTO, IDisposable
+    public class TipoRelacaoDTO : BaseDTO, IDisposable, INomeado
     {
         public TipoRelacaoDTO()
         {

@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 
 using BibliotecaViva.DTO.Uteis;
+using BibliotecaViva.DTO.Interface;
 
 namespace BibliotecaViva.DTO
 {
-    public class RegistroDTO : BaseDTO, IDisposable
+    public class RegistroDTO : BaseDTO, IDisposable, INomeado
     {
         public RegistroDTO()
         {

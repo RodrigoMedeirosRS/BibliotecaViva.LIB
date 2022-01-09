@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
 
+using BibliotecaViva.DTO.Interface;
 using BibliotecaViva.DTO.Uteis;
 
 namespace BibliotecaViva.DTO
 {
-    public class PessoaDTO : BaseDTO, IDisposable
+    public class PessoaDTO : BaseDTO, IDisposable, INomeado
     {
         public PessoaDTO()
         {
