@@ -16,9 +16,9 @@ namespace BibliotecaViva.SAL
                 var client = DefinirCliente(url);
                 var request = CriarRequisicao(JsonConvert.SerializeObject(Corpo));
                 var retorno = EnviarPOST(client, request);
-                if (S.GetType().Name == "string")
+                if (typeof(S).Name == "string")
                     return JsonConvert.DeserializeObject<S>(EnviarPOST(client, request));
-                return retorno;
+                return (S)Convert.ChangeType(retorno, typeof(S));
             }
             catch(Exception e)
             {
