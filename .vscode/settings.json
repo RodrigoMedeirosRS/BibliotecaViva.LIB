@@ -8,6 +8,8 @@
     "SAL\\bin": true,
     "SAL\\obj": true,
     "LIB\\System.Data.SQLite.NetStandard\\bin": true,
-    "LIB\\System.Data.SQLite.NetStandard\\obj": true
+    "LIB\\System.Data.SQLite.NetStandard\\obj": true,
+    "BLL\\bin": true,
+    "BLL\\obj": true
   }
 }
