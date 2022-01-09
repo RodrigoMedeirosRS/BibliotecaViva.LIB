@@ -60,14 +60,14 @@ namespace BibliotecaViva.BLL.Utils
                 }
             }
         }
-        public static long[] ProcessarLatLong(string latlong)
+        public static double[] ProcessarLatLong(string latlong)
         {
             latlong = RemoverEspacosString(latlong);
             var coordenadas = SepararPorVirgula(latlong);
-            return new long[2]
+            return new double[2]
             {
-                long.Parse(coordenadas[0]),
-                long.Parse(coordenadas[1])
+                double.Parse(coordenadas[0]),
+                double.Parse(coordenadas[1])
             };
         }
         public static string RemoverEspacosString(string input)
