@@ -4,7 +4,7 @@ namespace BibliotecaViva.DTO.Utils
     {
         public static bool VerificarBinario(TipoExecucao tipoExecucao)
         {
-            return (tipoExecucao != TipoExecucao.Texto && tipoExecucao == TipoExecucao.URL);
+            return (tipoExecucao != TipoExecucao.Texto && tipoExecucao != TipoExecucao.URL);
         }
     }
 }
