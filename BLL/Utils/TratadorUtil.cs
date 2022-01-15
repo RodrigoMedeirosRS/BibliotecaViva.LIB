@@ -1,7 +1,8 @@
 using System;
+using System.IO;
 using System.Text;
 using System.Linq;
-using System.IO;
+using System.Globalization;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 
@@ -60,15 +61,17 @@ namespace BibliotecaViva.BLL.Utils
                 }
             }
         }
-        public static double[] ProcessarLatLong(string latlong)
+        public static string[] ProcessarLatLong(string latlong)
         {
             latlong = RemoverEspacosString(latlong);
             var coordenadas = SepararPorVirgula(latlong);
-            return new double[2]
-            {
-                double.Parse(coordenadas[0]),
-                double.Parse(coordenadas[1])
-            };
+            ValidarCoordenadas(coordenadas);
+            return coordenadas;
+        }
+        private static void ValidarCoordenadas(string[] coordenadas)
+        {
+            double.Parse(coordenadas[0], System.Globalization.NumberStyles.Any, CultureInfo.GetCultureInfo("en-US"));
+            double.Parse(coordenadas[1], System.Globalization.NumberStyles.Any, CultureInfo.GetCultureInfo("en-US"));
         }
         public static string RemoverEspacosString(string input)
         {
