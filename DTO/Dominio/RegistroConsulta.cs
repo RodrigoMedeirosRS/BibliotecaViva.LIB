@@ -8,14 +8,17 @@ namespace BibliotecaViva.DTO.Dominio
         {
             Nome = string.Empty;
             Idioma = string.Empty;
+            Apelido = string.Empty;
         }
         public string Nome { get; set; }
         public string Idioma { get; set; }
+        public string Apelido { get; set; }
         
         public void Dispose()
         {
             Nome = null;
             Idioma = null;
+            Apelido = null;
         }
     }
 }
