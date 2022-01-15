@@ -22,8 +22,8 @@ namespace BibliotecaViva.DTO
         public string Genero { get; set; }
         public string Apelido { get; set; }
         public string NomeSocial { get; set; }
-        public double? Latitude { get; set; }
-        public double? Longitude { get; set; }
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
         public List<PessoaRegistroDTO> Relacoes { get; set; }
 
         public void Dispose()

@@ -6,11 +6,11 @@ namespace BibliotecaViva.DTO.Dominio
     {
         public SonarConsulta()
         {
-            CoordenadaInicio = new double[2];
-            CoordenadaFim = new double[2];
+            CoordenadaInicio = new string[2];
+            CoordenadaFim = new string[2];
         }
-        public double[] CoordenadaInicio { get; set; }
-        public double[] CoordenadaFim { get; set; }
+        public string[] CoordenadaInicio { get; set; }
+        public string[] CoordenadaFim { get; set; }
 
         public void Dispose()
         {
