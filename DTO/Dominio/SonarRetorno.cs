@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-using BibliotecaViva.DTO.Uteis;
+using BibliotecaViva.DTO.Utils;
 
 namespace BibliotecaViva.DTO.Dominio
 {

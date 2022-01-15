@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-using BibliotecaViva.DTO.Uteis;
+using BibliotecaViva.DTO.Utils;
 using BibliotecaViva.DTO.Interface;
 
 namespace BibliotecaViva.DTO

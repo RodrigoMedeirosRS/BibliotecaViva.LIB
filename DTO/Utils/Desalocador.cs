@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace BibliotecaViva.DTO.Uteis
+namespace BibliotecaViva.DTO.Utils
 {
     public static class Desalocador
     {
