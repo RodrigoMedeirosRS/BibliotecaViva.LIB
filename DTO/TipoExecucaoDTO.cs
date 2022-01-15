@@ -10,7 +10,7 @@ namespace BibliotecaViva.DTO
             Nome = string.Empty;
         }
         public string Nome { get; set; }
-        public string Extensao { get; set; }
+        public bool Binario { get; set; }
 
         public void Dispose()
         {
