@@ -12,7 +12,7 @@ namespace BibliotecaViva.DTO
         }
         public string Nome { get; set; }
         public string Extensao { get; set; }
-        public bool Binario { get; set; }
+        public int TipoExecucao { get; set; }
 
         public void Dispose()
         {
