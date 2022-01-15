@@ -1,4 +1,5 @@
 using System;
+using BibliotecaViva.DTO.Utils;
 using BibliotecaViva.DTO.Interface;
 
 namespace BibliotecaViva.DTO
@@ -12,7 +13,7 @@ namespace BibliotecaViva.DTO
         }
         public string Nome { get; set; }
         public string Extensao { get; set; }
-        public int TipoExecucao { get; set; }
+        public TipoExecucaoDTO TipoExecucao { get; set; }
 
         public void Dispose()
         {
