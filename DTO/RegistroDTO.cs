@@ -17,7 +17,7 @@ namespace BibliotecaViva.DTO
             Conteudo = string.Empty;
             Descricao = string.Empty;
             DataInsercao = DateTime.Now;
-            Referencias = new List<ReferenciaDTO>();
+            Referencias = new List<RelacaoDTO>();
         }
         public string Nome { get; set; }
         public string Apelido { get; set; }
@@ -28,7 +28,7 @@ namespace BibliotecaViva.DTO
         public DateTime DataInsercao { get; set; }
         public string Latitude { get; set; }
         public string Longitude { get; set; } 
-        public List<ReferenciaDTO> Referencias { get; set; }
+        public List<RelacaoDTO> Referencias { get; set; }
 
         public void Dispose()
         {
@@ -40,7 +40,7 @@ namespace BibliotecaViva.DTO
             Descricao = null;
             Latitude = null;
             Longitude = null;
-            Desalocador.DesalocarLista<ReferenciaDTO>(Referencias);
+            Desalocador.DesalocarLista<RelacaoDTO>(Referencias);
         }
     }
 }

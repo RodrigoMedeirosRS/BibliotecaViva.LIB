@@ -2,20 +2,20 @@ using System;
 
 namespace BibliotecaViva.DTO
 {
-    public class PessoaRegistroDTO : BaseDTO, IDisposable
+    public class RelacaoDTO : BaseDTO, IDisposable
     {
-        public PessoaRegistroDTO()
+        public RelacaoDTO()
         {
             TipoRelacao = string.Empty;
         }
-        public int? Pessoa { get; set; }
-        public int? Registro { get; set; }
+        public int? RegistroPessoaID { get; set; }
+        public int? RelacaoID { get; set; }
         public string TipoRelacao { get; set; }
 
         public void Dispose()
         {
-            Pessoa = null;
-            Registro = null;
+            RegistroPessoaID = null;
+            RelacaoID = null;
             TipoRelacao = null;
         }
     }
