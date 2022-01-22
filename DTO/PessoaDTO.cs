@@ -15,7 +15,7 @@ namespace BibliotecaViva.DTO
             Genero = string.Empty;
             Apelido = string.Empty;
             NomeSocial = string.Empty;
-            Relacoes = new List<PessoaRegistroDTO>();
+            Relacoes = new List<RelacaoDTO>();
         }
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
@@ -24,7 +24,7 @@ namespace BibliotecaViva.DTO
         public string NomeSocial { get; set; }
         public string Latitude { get; set; }
         public string Longitude { get; set; }
-        public List<PessoaRegistroDTO> Relacoes { get; set; }
+        public List<RelacaoDTO> Relacoes { get; set; }
 
         public void Dispose()
         {
@@ -34,7 +34,7 @@ namespace BibliotecaViva.DTO
             Apelido = null;
             Latitude = null;
             Longitude = null;
-            Desalocador.DesalocarLista<PessoaRegistroDTO>(Relacoes);
+            Desalocador.DesalocarLista<RelacaoDTO>(Relacoes);
         }
     }
 }
