@@ -48,8 +48,7 @@ namespace BibliotecaViva.SAL
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("Accept", "*/*");
             request.AddHeader("Cache-Control", "no-cache");
-            //if (!string.IsNullOrEmpty(ConfigurationManager.AppSettings["UrlHost"]))
-            //    request.AddHeader("Host", ConfigurationManager.AppSettings["UrlHost"]);
+            //request.AddHeader("Host", "127.0.0.1");
             request.AddHeader("Accept-Encoding", "gzip, deflate, br");
             request.AddHeader("Content-Length", body.Length.ToString());
             request.AddHeader("Connection", "keep-alive");
