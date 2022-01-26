@@ -10,15 +10,12 @@ namespace BibliotecaViva.DTO.Dominio
         public SonarRetorno()
         {
             Registros = new List<RegistroDTO>();
-            Pessoas = new List<PessoaDTO>();
         }
         public List<RegistroDTO> Registros { get; set; }
-        public List<PessoaDTO> Pessoas { get; set; }
 
         public void Dispose()
         {
             Desalocador.DesalocarLista<RegistroDTO>(Registros);
-            Desalocador.DesalocarLista<PessoaDTO>(Pessoas);
         }
     }
 }
