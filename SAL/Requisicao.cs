@@ -3,27 +3,43 @@ using RestSharp;
 using System.IO;
 using System.Net;
 using Newtonsoft.Json;
+using BibliotecaViva.Utils;
 using BibliotecaViva.SAL.Interface;
 
 namespace BibliotecaViva.SAL
 {
     public class Requisicao : IRequisicao, IDisposable
     {
-        public S ExecutarPost<T, S>(string url, T Corpo)
+        public S ExecutarPost<T, S>(string url, T corpo, bool remoteAccess = false)
         {
             try
             {
-                var client = DefinirCliente(url);
-                var request = CriarRequisicao(JsonConvert.SerializeObject(Corpo));
-                var retorno = EnviarPOST(client, request);
-                if (typeof(S).Name == "String")
-                    return (S)Convert.ChangeType(retorno, typeof(S));
-                return JsonConvert.DeserializeObject<S>(EnviarPOST(client, request));
+                if(!remoteAccess)
+                    return ExecutarRequestNormal<T, S>(url, corpo);
+                return ExecutarRemoteAccess<T, S>(url,corpo);
             }
             catch(Exception e)
             {
                 throw new Exception("Erro na transmissão: " + e.Message);
             }
+        }
+        private S ExecutarRequestNormal<T, S>(string url, T corpo)
+        {
+            var client = DefinirCliente(url);
+            var request = CriarRequisicao(JsonConvert.SerializeObject(corpo));
+            var retorno = EnviarPOST(client, request);
+            if (typeof(S).Name == "String")
+                return (S)Convert.ChangeType(retorno, typeof(S));
+            return JsonConvert.DeserializeObject<S>(EnviarPOST(client, request));
+        }
+        private S ExecutarRemoteAccess<T, S>(string url, T corpo)
+        {
+            var argumento = url + "|" + JsonConvert.SerializeObject(corpo);
+            var processo = ProcessoUtil.InstanciarNovoProcesso(argumento, "./Remote.Access.exe");
+            var retorno = ProcessoUtil.ExecutarProcesso(processo);
+            if (typeof(S).Name == "String")
+                return (S)Convert.ChangeType(retorno, typeof(S));
+            return JsonConvert.DeserializeObject<S>(retorno);
         }
 
         public string ExecutarGet(string requisicao)
