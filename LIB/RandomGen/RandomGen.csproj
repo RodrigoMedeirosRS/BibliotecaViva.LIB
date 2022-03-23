@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0</TargetFrameworks>
+		<Summary>Random generation framework for .NET</Summary>
+		<AssemblyName>RandomGen</AssemblyName>
+		<PackageId>RandomGen</PackageId>
+	</PropertyGroup>
+  <PropertyGroup>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+	<ItemGroup>
+	  <None Remove="Data\blns.json" />
+	  <None Remove="Data\dictionary.txt" />
+	  <None Remove="Data\dist.all.last.txt" />
+	  <None Remove="Data\dist.female.first.txt" />
+	  <None Remove="Data\dist.male.first.txt" />
+	  <None Remove="Data\dist.tld.txt" />
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Include="Data\blns.json" />
+	  <EmbeddedResource Include="Data\dictionary.txt" />
+	  <EmbeddedResource Include="Data\dist.all.last.txt" />
+	  <EmbeddedResource Include="Data\dist.female.first.txt" />
+	  <EmbeddedResource Include="Data\dist.male.first.txt" />
+	  <EmbeddedResource Include="Data\dist.tld.txt" />
+	</ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Text.Json">
+      <Version>4.6.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net452'">
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>11.0.1</Version>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
