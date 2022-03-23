@@ -4,5 +4,7 @@
 /SAL/obj
 /LIB/System.Data.SQLite.NetStandard/bin
 /LIB/System.Data.SQLite.NetStandard/obj
+/LIB/RandomGen/bin
+/LIB/RandomGen/obj
 /BLL/bin
 /BLL/obj
