@@ -3,6 +3,8 @@ using RestSharp;
 using System.IO;
 using System.Net;
 using Newtonsoft.Json;
+using RestSharp.Authenticators;
+
 using BibliotecaViva.Utils;
 using BibliotecaViva.SAL.Interface;
 
@@ -10,12 +12,12 @@ namespace BibliotecaViva.SAL
 {
     public class Requisicao : IRequisicao, IDisposable
     {
-        public S ExecutarPost<T, S>(string url, T corpo, bool remoteAccess = false)
+        public S ExecutarPost<T, S>(string url, T corpo, string usuario = "", string senha = "",  bool remoteAccess = false)
         {
             try
             {
                 if(!remoteAccess)
-                    return ExecutarRequestNormal<T, S>(url, corpo);
+                    return ExecutarRequestNormal<T, S>(url, corpo, usuario, senha);
                 return ExecutarRemoteAccess<T, S>(url,corpo);
             }
             catch(Exception e)
@@ -23,14 +25,21 @@ namespace BibliotecaViva.SAL
                 throw new Exception("Erro na transmissão: " + e.Message);
             }
         }
-        private S ExecutarRequestNormal<T, S>(string url, T corpo)
+        private S ExecutarRequestNormal<T, S>(string url, T corpo, string usuario, string senha)
         {
-            var client = DefinirCliente(url);
+            var client = DefinirCliente(url, usuario, senha);
             var request = CriarRequisicao(JsonConvert.SerializeObject(corpo));
             var retorno = EnviarPOST(client, request);
             if (typeof(S).Name == "String")
                 return (S)Convert.ChangeType(retorno, typeof(S));
-            return JsonConvert.DeserializeObject<S>(EnviarPOST(client, request));
+            try
+            {
+                return JsonConvert.DeserializeObject<S>(retorno);
+            }
+            catch
+            {
+                throw new Exception(retorno);
+            }
         }
         private S ExecutarRemoteAccess<T, S>(string url, T corpo)
         {
@@ -73,9 +82,11 @@ namespace BibliotecaViva.SAL
             return request;
         }
 
-        private RestClient DefinirCliente(string url)
+        private RestClient DefinirCliente(string url, string usuario, string senha)
         {
             var client = new RestClient(url);
+            if (!string.IsNullOrEmpty(usuario) && !string.IsNullOrEmpty(senha))
+                client.Authenticator = new HttpBasicAuthenticator(usuario, senha);
             client.ReadWriteTimeout = 60000;
             return client;
         }
